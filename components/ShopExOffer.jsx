@@ -10,15 +10,15 @@ const ShopExOffer = () => {
   ];
 
   return (
-    <div className="p-4">
-      <h2 className="text-lg font-bold mb-4 text-center text-blue-900">What ShopEx Offers</h2>
-      <div className="flex justify-center space-x-4">
+    <div className="p-8">
+      <h2 className="text-2xl font-bold mb-6 text-center text-blue-900">What ShopEx Offers</h2>
+      <div className="flex justify-center flex-wrap gap-6">
         {offers.map((offer) => (
-          <div key={offer.id} className="border rounded-lg p-4 shadow-md w-40 text-center">
-            <div className="mb-4">
+          <div key={offer.id} className="border rounded-lg p-6 shadow-md w-full sm:w-1/2 md:w-1/4 text-center hover:bg-blue-50 transition-colors">
+            <div className="mb-4 text-blue-900">
               {offer.icon}
             </div>
-            <h3 className="text-base font-semibold">{offer.title}</h3>
+            <h3 className="text-xl font-semibold mb-2">{offer.title}</h3>
             <p className="text-sm text-gray-700">{offer.description}</p>
           </div>
         ))}

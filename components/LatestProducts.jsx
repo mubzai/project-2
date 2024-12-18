@@ -1,3 +1,4 @@
+"use client"
 import React from 'react';
 
 const LatestProducts = () => {
@@ -24,10 +25,22 @@ const LatestProducts = () => {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {products.map((product) => (
-          <div key={product.id} className="border rounded-lg text-blue-900 p-4 shadow-md">
-            <img src={product.image} alt={product.name} className="w-full h-24 object-contain rounded-md mb-4" />
+          <div key={product.id} className="border rounded-lg text-blue-900 p-4 shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-300">
+            <img 
+              src={product.image} 
+              alt={product.name} 
+              className="w-full h-24 object-contain rounded-md mb-4" 
+              loading="lazy"
+            />
             <h3 className="text-lg text-blue-900 font-semibold">{product.name}</h3>
             <p className="text-gray-700">{product.price}</p>
+
+            <button 
+              className="mt-4 px-4 py-2 bg-pink-500 text-white rounded-lg hover:bg-pink-700 transition-colors duration-300"
+              onClick={() => console.log(`${product.name} added to cart`)}
+            >
+              Add to Cart
+            </button>
           </div>
         ))}
       </div>

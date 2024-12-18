@@ -1,37 +1,28 @@
 "use client"
 import React from 'react';
+import { useRouter } from 'next/navigation';
 
 const Banner = () => {
+  const router = useRouter();
+
+  const handleClick = () => {
+    router.push('/shop'); // Redirect to the shop page
+  };
+
   return (
     <div
-      style={{
-        backgroundImage: 'url(/banner2.jpg)', // Set the background image
-        backgroundSize: 'cover', // Ensure the image covers the entire container
-        backgroundPosition: 'center', // Center the background image
-        color: '#fff', // Text color
-        textAlign: 'center',
-        padding: '40px 20px',
-        borderRadius: '8px',
-        marginBottom: '20px', // Optional, adds space below the banner
-      }}
+      className="bg-cover bg-center text-white text-center p-10 rounded-lg mb-5"
+      style={{ backgroundImage: 'url(/banner2.jpg)' }}
     >
-      <h2 style={{ fontSize: '28px', fontWeight: 'bold', marginBottom: '10px', color: 'blue' }}>
+      <h2 className="text-3xl font-bold mb-3 text-blue-500">
         Get Latest Updates by Subscribing to Our Newsletter
       </h2>
-      <p style={{ fontSize: '18px', marginBottom: '20px', color: 'blue' }}>
+      <p className="text-lg mb-5 text-blue-400">
         Stay up to date with the latest products and offers. Subscribe now!
       </p>
       <button
-        style={{
-          padding: '12px 30px',
-          fontSize: '16px',
-          color: '#fff',
-          backgroundColor: 'pink', // Set the button color to pink
-          border: 'none',
-          borderRadius: '5px',
-          cursor: 'pointer',
-        }}
-        onClick={() => alert('You clicked Shop Now!')}
+        onClick={handleClick}
+        className="px-6 py-3 bg-pink-500 text-white rounded-md text-lg cursor-pointer hover:bg-pink-600"
       >
         Shop Now
       </button>

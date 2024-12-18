@@ -5,72 +5,44 @@ const TopCategories = () => {
     {
       name: 'Wood Chair',
       price: '$120',
-      image: '/trend1.jpg', // Replace with your image path
+      image: '/trend1.jpg',
     },
     {
       name: 'Plastic Chair',
       price: '$85',
-      image: '/trend2.jpg', // Replace with your image path
+      image: '/trend2.jpg',
     },
     {
       name: 'Sofa Collection',
       price: '$350',
-      image: '/trend3.jpg', // Replace with your image path
+      image: '/trend3.jpg',
     },
     {
       name: 'Dining Table',
       price: '$240',
-      image: '/trend4.jpg', // Replace with your image path
+      image: '/trend4.jpg',
     },
   ];
 
   return (
-    <div style={{ padding: '20px', textAlign: 'center' }}>
-      <h2 style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '20px' }}>
-        Top Categories
-      </h2>
+    <div className="p-8 text-center">
+      <h2 className="text-2xl font-bold mb-6 text-blue-900">Top Categories</h2>
 
-      <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(4, 1fr)',
-          gap: '10px', // Reduced gap
-        }}
-      >
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
         {categories.map((category, index) => (
           <div
             key={index}
-            style={{
-              textAlign: 'center',
-              padding: '10px', // Adjusted padding
-            }}
+            className="text-center p-4 border rounded-lg shadow-md hover:shadow-lg transition-shadow"
           >
-            <div
-              style={{
-                width: '120px',
-                height: '120px',
-                borderRadius: '50%',
-                overflow: 'hidden',
-                margin: '0 auto',
-                border: '2px solid #ddd',
-              }}
-            >
+            <div className="w-32 h-32 rounded-full overflow-hidden mx-auto border-2 border-gray-300">
               <img
                 src={category.image}
                 alt={category.name}
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                }}
+                className="w-full h-full object-cover"
               />
             </div>
-            <h3 style={{ fontSize: '16px', fontWeight: 'bold', marginTop: '10px' }}>
-              {category.name}
-            </h3>
-            <p style={{ fontSize: '14px', color: '#4CAF50', marginTop: '5px' }}>
-              {category.price}
-            </p>
+            <h3 className="text-lg font-semibold mt-4">{category.name}</h3>
+            <p className="text-sm text-green-600 mt-2">{category.price}</p>
           </div>
         ))}
       </div>

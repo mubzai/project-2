@@ -1,5 +1,6 @@
-"use client"
+"use client";
 import React, { useState } from 'react';
+import Link from 'next/link';
 
 const Heading = () => {
   const [language, setLanguage] = useState('English');
@@ -24,7 +25,8 @@ const Heading = () => {
             <select
               value={language}
               onChange={handleLanguageChange}
-              className="bg-transparent text-white border-none outline-none"
+              className="bg-transparent text-white border-none outline-none cursor-pointer"
+              aria-label="Select Language"
             >
               <option value="English">English</option>
               <option value="Spanish">Spanish</option>
@@ -36,7 +38,8 @@ const Heading = () => {
             <select
               value={currency}
               onChange={handleCurrencyChange}
-              className="bg-transparent text-white border-none outline-none"
+              className="bg-transparent text-white border-none outline-none cursor-pointer"
+              aria-label="Select Currency"
             >
               <option value="USD">USD</option>
               <option value="EUR">EUR</option>
@@ -44,8 +47,11 @@ const Heading = () => {
               {/* Add more currencies as needed */}
             </select>
 
-            {/* Login and Wishlist */}
-            <p className="text-sm">Login | Wishlist</p>
+            {/* Login and Wishlist with Links */}
+            <div className="text-sm">
+              <Link href="/login" className="hover:underline" aria-label="Login">Login</Link> | 
+              <Link href="/wishlist" className="hover:underline" aria-label="Wishlist">Wishlist</Link>
+            </div>
           </div>
         </div>
       </div>

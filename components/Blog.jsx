@@ -23,48 +23,24 @@ const Blog = () => {
   ];
 
   return (
-    <div style={{ padding: '40px 20px', textAlign: 'center' }}>
-      <h2 style={{ fontSize: '28px', fontWeight: 'bold', marginBottom: '30px' }}>Latest Blog Posts</h2>
-      <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(3, 1fr)',
-          gap: '20px',
-          marginBottom: '20px',
-        }}
-      >
+    <div className="py-10 px-5 text-center">
+      <h2 className="text-3xl font-bold mb-10">Latest Blog Posts</h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {blogPosts.map((post, index) => (
           <div
             key={index}
-            style={{
-              backgroundColor: '#fff',
-              borderRadius: '8px',
-              boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-              overflow: 'hidden',
-              textAlign: 'center',
-              padding: '20px',
-            }}
+            className="bg-white rounded-lg shadow-lg overflow-hidden text-center p-6"
           >
             <img
               src={post.image}
               alt={post.title}
-              style={{
-                width: '100%',
-                height: 'auto',
-                borderRadius: '8px',
-                marginBottom: '15px',
-              }}
+              className="w-full h-auto rounded-lg mb-4"
             />
-            <h3 style={{ fontSize: '20px', fontWeight: 'bold', marginBottom: '10px' }}>{post.title}</h3>
-            <p style={{ fontSize: '16px', color: '#555', marginBottom: '15px' }}>{post.description}</p>
+            <h3 className="text-xl font-semibold mb-3">{post.title}</h3>
+            <p className="text-base text-gray-600 mb-4">{post.description}</p>
             <a
               href={post.link}
-              style={{
-                color: '#4CAF50',
-                fontSize: '16px',
-                textDecoration: 'none',
-                fontWeight: 'bold',
-              }}
+              className="text-green-500 text-base font-bold hover:underline"
             >
               Read More
             </a>
