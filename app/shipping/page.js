@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-
+import Heading from "@/components/Heading";
 const ShippingPage = () => {
   const [shippingInfo, setShippingInfo] = useState({
     firstName: "",
@@ -29,7 +29,7 @@ const ShippingPage = () => {
     if (!shippingInfo.email) newErrors.email = "Email is required";
     if (!shippingInfo.address) newErrors.address = "Address is required";
     if (!shippingInfo.phone) newErrors.phone = "Phone number is required";
-    else if (!/^\d{10}$/.test(shippingInfo.phone)) newErrors.phone = "Phone number must be 10 digits";
+    else if (!/^\d{11}$/.test(shippingInfo.phone)) newErrors.phone = "Phone number must be 11 digits";
     
     if (!/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/.test(shippingInfo.email)) {
       newErrors.email = "Please enter a valid email address";
@@ -49,7 +49,7 @@ const ShippingPage = () => {
   };
 
   return (
-    <div>
+    <div> <Heading/>
       <Header />
       <div className="container mx-auto p-6">
         <h1 className="text-3xl font-bold text-gray-900 mb-6">Shipping Information</h1>

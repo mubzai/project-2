@@ -34,7 +34,7 @@ const Header = () => {
               </a>
             </li>
             <li>
-              <a href="/Pages" className="block px-4 py-2 hover:text-blue-500">
+              <a href="/404error" className="block px-4 py-2 hover:text-blue-500">
                 Pages
               </a>
             </li>

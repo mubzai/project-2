@@ -1,29 +1,48 @@
 "use client"
 import React from 'react';
+import { useRouter } from 'next/navigation';
 
 const TrendingProducts = () => {
+  const router = useRouter();
+
   const products = [
     {
-      name: 'Product 1',
+      name: 'Recliner Chair',
       image: '/trend3.jpg', // Replace with actual image paths
-      price: '$32',
+      price: 32, // Store price as a number (without the $)
     },
     {
-      name: 'Product 2',
+      name: 'Armchair',
       image: '/trend4.jpg', // Replace with actual image paths
-      price: '$45',
+      price: 45, // Store price as a number (without the $)
     },
     {
-      name: 'Product 3',
+      name: 'Rocking Chair',
       image: '/trend3.jpg', // Replace with actual image paths
-      price: '$28',
+      price: 28, // Store price as a number (without the $)
     },
     {
-      name: 'Product 4',
+      name: 'Cantilever Chair',
       image: '/trend4.jpg', // Replace with actual image paths
-      price: '$50',
+      price: 50, // Store price as a number (without the $)
     },
   ];
+
+  // Function to add product to the cart
+  const addToCart = (product) => {
+    // Get the existing cart from localStorage or initialize an empty array
+    const existingCart = JSON.parse(localStorage.getItem('cart')) || [];
+    
+    // Add the selected product to the cart, with a quantity of 1
+    const updatedCart = [...existingCart, { ...product, quantity: 1 }];
+    
+    // Save the updated cart back to localStorage
+    localStorage.setItem('cart', JSON.stringify(updatedCart));
+    
+    // Show a message and navigate to the cart page
+    alert(`${product.name} added to cart`);
+    router.push('/cart');
+  };
 
   return (
     <div className="p-8 bg-gray-100">
@@ -42,10 +61,10 @@ const TrendingProducts = () => {
               className="w-full h-48 object-cover rounded-lg mb-4"
             />
             <h3 className="text-lg font-semibold">{product.name}</h3>
-            <p className="text-md text-green-500 mt-2">{product.price}</p>
+            <p className="text-md text-green-500 mt-2">${product.price.toFixed(2)}</p> {/* Show price with $ */}
             <button
               className="mt-4 py-2 px-4 bg-green-500 text-white rounded-lg w-full hover:bg-green-600 transition-colors"
-              onClick={() => alert(`${product.name} added to cart`)}
+              onClick={() => addToCart(product)} // Add to cart functionality
             >
               Add to Cart
             </button>

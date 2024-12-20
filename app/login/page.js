@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Heading from "@/components/Heading";
 
 const LoginPage = () => {
   const [credentials, setCredentials] = useState({
@@ -34,11 +35,12 @@ const LoginPage = () => {
 
     // Simulate a successful login (replace with real authentication logic)
     alert("Login successful!");
-    router.push("/dashboard"); // Redirect to a dashboard or another page
+    router.push("/"); // Redirect to a dashboard or another page
   };
 
   return (
     <div>
+      <Heading/>
       <Header />
       <div className="container mx-auto p-6 flex justify-center items-center min-h-screen">
         <div className="w-full max-w-sm">

@@ -6,19 +6,19 @@ const Blog = () => {
       title: 'How to Choose the Perfect Sofa for Your Living Room',
       image: '/blog.jpg', // Replace with your actual image path
       description: 'Find out the top tips for selecting the perfect sofa for comfort and style in your living room.',
-      link: '#',
+      link: 'blog',
     },
     {
       title: '5 Furniture Trends You Can’t Miss This Year',
       image: '/blog.jpg', // Replace with your actual image path
       description: 'Stay ahead of the curve with these trending furniture styles that will transform your home.',
-      link: '#',
+      link: 'blog',
     },
     {
       title: 'How to Care for Your Wooden Furniture',
       image: '/blog.jpg', // Replace with your actual image path
       description: 'Learn how to properly maintain your wooden furniture to keep it looking fresh and lasting longer.',
-      link: '#',
+      link: 'blog',
     },
   ];
 

@@ -1,4 +1,5 @@
 "use client";
+import { AiOutlineShoppingCart } from 'react-icons/ai';
 import React, { useState } from 'react';
 import Link from 'next/link';
 
@@ -48,10 +49,19 @@ const Heading = () => {
             </select>
 
             {/* Login and Wishlist with Links */}
-            <div className="text-sm">
-              <Link href="/login" className="hover:underline" aria-label="Login">Login</Link> | 
-              <Link href="/wishlist" className="hover:underline" aria-label="Wishlist">Wishlist</Link>
-            </div>
+            <div className="flex items-center space-x-4 text-sm">
+      <Link href="/login" className="hover:underline" aria-label="Login">
+        Login
+      </Link>
+      |
+      <Link href="/Wishlist" className="hover:underline" aria-label="Wishlist">
+        Wishlist
+      </Link>
+      
+      <Link href="/cart" className="hover:underline" aria-label="Cart">
+        <AiOutlineShoppingCart size={24} color="white" />
+      </Link>
+    </div>
           </div>
         </div>
       </div>

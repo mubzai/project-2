@@ -85,7 +85,7 @@ const FutureComponent = () => {
     <div style={containerStyle}>
       <div style={leftStyle}>
         <img
-          src="/sofa.jpg"
+          src="/sofa1.jpg"
           alt="Future Visual"
           style={{
             borderRadius: "10px",

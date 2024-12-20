@@ -3,48 +3,55 @@ import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Heading from "@/components/Heading";
 
 const CartPage = () => {
   const [cart, setCart] = useState([]);
   const router = useRouter();
 
+  // Load the cart from localStorage when the component is mounted
   useEffect(() => {
     const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
     setCart(storedCart);
   }, []);
 
+  // Calculate the subtotal of the cart
   const calculateSubtotal = () => {
-    return cart.reduce((total, item) => total + item.price * item.quantity, 0);
+    return cart.reduce((total, item) => total + parseFloat(item.price) * item.quantity, 0);
   };
 
+  // Calculate the total price including tax (example 10% tax)
   const calculateTotal = () => {
     const subtotal = calculateSubtotal();
     const tax = subtotal * 0.1; // Example 10% tax
     return subtotal + tax;
   };
 
+  // Clear the cart
   const clearCart = () => {
     setCart([]);
     localStorage.removeItem("cart");
   };
 
+  // Update the quantity of a specific item in the cart
   const updateQuantity = (index, change) => {
     const updatedCart = [...cart];
     updatedCart[index].quantity += change;
     if (updatedCart[index].quantity < 1) {
-      updatedCart[index].quantity = 1;
+      updatedCart[index].quantity = 1; // Ensure quantity doesn't go below 1
     }
     setCart(updatedCart);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
   };
 
+  // Update the cart in localStorage and notify the user
   const updateCart = () => {
-    localStorage.setItem("cart", JSON.stringify(cart)); // Update the cart in localStorage
+    localStorage.setItem("cart", JSON.stringify(cart));
     alert("Cart updated successfully!");
   };
 
   return (
-    <div>
+    <div> <Heading/>
       <Header />
       <div className="container mx-auto p-6">
         <h1 className="text-3xl font-bold text-gray-900 mb-6">Shopping Cart</h1>
@@ -67,7 +74,7 @@ const CartPage = () => {
                     <div>
                       <h3 className="text-sm text-gray-800">{item.name}</h3>
                     </div>
-                    <div className="text-gray-600">${item.price}</div>
+                    <div className="text-gray-600">${parseFloat(item.price).toFixed(2)}</div> {/* Correct price display */}
                     <div className="flex items-center space-x-2">
                       <button
                         onClick={() => updateQuantity(index, -1)}
@@ -83,7 +90,7 @@ const CartPage = () => {
                         +
                       </button>
                     </div>
-                    <div className="text-gray-600">${(item.price * item.quantity).toFixed(2)}</div>
+                    <div className="text-gray-600">${(parseFloat(item.price) * item.quantity).toFixed(2)}</div> {/* Correct total price */}
                   </div>
                 ))}
               </div>

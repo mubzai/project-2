@@ -2,10 +2,10 @@
 import React from "react";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-
+import Heading from "@/components/Heading";
 const Page = () => {
   return (
-    <div>
+    <div> <Heading/>
       <Header />
       <div className="container mx-auto p-6">
         {/* Product Image and Details Section */}

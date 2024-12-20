@@ -3,6 +3,7 @@ import React from "react";
 import { useRouter } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Heading from "@/components/Heading";
 
 const Page = () => {
   const router = useRouter();
@@ -13,6 +14,7 @@ const Page = () => {
 
   return (
     <div>
+      <Heading/>
       <Header />
       <main className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-6">
         <section className="bg-white p-8 rounded-lg shadow-lg text-center max-w-md mx-auto">
